@@ -1,0 +1,162 @@
+{
+  "info": {
+    "name": "Unified Intake Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\": \"{{ADMIN_USER}}\", \"password\": \"{{ADMIN_PASS}}\"}"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/api/auth/login",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Flows",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{BASE_URL}}/admin/flows",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "admin",
+            "flows"
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Queues",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{BASE_URL}}/admin/queues",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "admin",
+            "queues"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Submissions",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{BASE_URL}}/admin/submissions?queue=auto_queue",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "admin",
+            "submissions"
+          ],
+          "query": [
+            {
+              "key": "queue",
+              "value": "auto_queue"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Prompts",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{BASE_URL}}/admin/prompts",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "admin",
+            "prompts"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Prompt (auto_bot)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{BASE_URL}}/admin/prompts/auto_bot",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "admin",
+            "prompts",
+            "auto_bot"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Sample Intake (Auto)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"Test User\", \"email\": \"test@example.com\", \"consent\": true}"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/auto/intake",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "auto",
+            "intake"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "ADMIN_USER",
+      "value": "admin"
+    },
+    {
+      "key": "ADMIN_PASS",
+      "value": "supersecret"
+    }
+  ]
+}
